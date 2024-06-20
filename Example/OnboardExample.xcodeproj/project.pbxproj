@@ -13,6 +13,7 @@
 		9497BC2F20D701F900CCC791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9497BC2E20D701F900CCC791 /* Assets.xcassets */; };
 		9497BC3220D701F900CCC791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9497BC3020D701F900CCC791 /* LaunchScreen.storyboard */; };
 		9497BC4120D7029D00CCC791 /* OnboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9497BC4020D7029D00CCC791 /* OnboardKit.framework */; };
+		DA9F04C52C241D350073FC18 /* 180607_A_124.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DA9F04C42C241D350073FC18 /* 180607_A_124.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9497BC3120D701F900CCC791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9497BC3320D701F900CCC791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9497BC4020D7029D00CCC791 /* OnboardKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OnboardKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9F04C42C241D350073FC18 /* 180607_A_124.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 180607_A_124.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				9497BC2E20D701F900CCC791 /* Assets.xcassets */,
 				9497BC3020D701F900CCC791 /* LaunchScreen.storyboard */,
 				9497BC3320D701F900CCC791 /* Info.plist */,
+				DA9F04C42C241D350073FC18 /* 180607_A_124.mp4 */,
 			);
 			path = OnboardExample;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 				9497BC3220D701F900CCC791 /* LaunchScreen.storyboard in Resources */,
 				9497BC2F20D701F900CCC791 /* Assets.xcassets in Resources */,
 				9497BC2D20D701F800CCC791 /* Main.storyboard in Resources */,
+				DA9F04C52C241D350073FC18 /* 180607_A_124.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

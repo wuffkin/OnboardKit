@@ -67,6 +67,23 @@ class ViewController: UIViewController {
 
     return [pageOne, pageTwo, pageThree, pageFour, pageFive]
   }()
+    
+    lazy var onboardingPagesEmbeddedVideo: [OnboardPage] = {
+        let pageOne = OnboardPage(title: "Welcome to Video Example",
+                                  imageName: "Onboarding1_alt",
+                                  description: "This is only an example how to use the embedded video.")
+        
+        let pageTwo = OnboardPage(title: "Video example",
+                                  videoName: "180607_A_124.mp4",
+                                  description: "The video must be loaded into your code.\n\nEnter the video name with extension like \"awesome_video.mp4\".")
+        
+        let pageThree = OnboardPage(title: "All Ready",
+                                   imageName: "Onboarding5",
+                                   description: "You are all set up and ready to use Habitat. Adding your first habit.",
+                                   advanceButtonTitle: "Done")
+        
+        return [pageOne, pageTwo, pageThree]
+    }()
 
   @IBAction func showOnboardingDefaultTapped(_ sender: Any) {
     let onboardingVC = OnboardViewController(pageItems: onboardingPages, completion: {
@@ -116,6 +133,14 @@ class ViewController: UIViewController {
     onboardingVC.modalPresentationStyle = .formSheet
     onboardingVC.presentFrom(self, animated: true)
   }
+    
+    @IBAction func showOnboardingEmbeddedVideo(_ sender: Any) {
+      let onboardingVC = OnboardViewController(pageItems: onboardingPagesEmbeddedVideo, completion: {
+          print("onboarding complete")
+      })
+      onboardingVC.modalPresentationStyle = .formSheet
+      onboardingVC.presentFrom(self, animated: true)
+    }
 
   /// Only for the purpouses of the example.
   /// Not really asking for notifications permissions.

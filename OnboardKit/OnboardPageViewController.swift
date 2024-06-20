@@ -4,8 +4,10 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
-internal protocol OnboardPageViewControllerDelegate: class {
+internal protocol OnboardPageViewControllerDelegate: AnyObject {
 
   /// Informs the `delegate` that the action button was tapped
   ///
@@ -46,6 +48,12 @@ internal final class OnboardPageViewController: UIViewController {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
+  }()
+    
+  private lazy var videoView: UIView = {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
   }()
 
   private lazy var descriptionLabel: UILabel = {
@@ -92,6 +100,8 @@ internal final class OnboardPageViewController: UIViewController {
     view.backgroundColor = appearanceConfiguration.backgroundColor
     // Setup imageView
     imageView.contentMode = appearanceConfiguration.imageContentMode
+    // Setup videoView
+    videoView.contentMode = appearanceConfiguration.imageContentMode
     // Style title
     titleLabel.textColor = appearanceConfiguration.titleColor
     titleLabel.font = appearanceConfiguration.titleFont
@@ -130,6 +140,7 @@ internal final class OnboardPageViewController: UIViewController {
       pageStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)
       ])
     pageStackView.addArrangedSubview(imageView)
+    pageStackView.addArrangedSubview(videoView)
     pageStackView.addArrangedSubview(descriptionLabel)
     pageStackView.addArrangedSubview(actionButton)
     pageStackView.addArrangedSubview(advanceButton)
@@ -147,10 +158,16 @@ internal final class OnboardPageViewController: UIViewController {
     super.viewWillAppear(animated)
     customizeButtonsWith(appearanceConfiguration)
   }
+    
+  override func viewDidAppear(_ animated: Bool) {
+    updateVideoViewLayout()
+  }
 
+    // MARK: - Configurations
   func configureWithPage(_ page: OnboardPage) {
     configureTitleLabel(page.title)
     configureImageView(page.imageName)
+    configureVideoView(page.videoName)
     configureDescriptionLabel(page.description)
     configureActionButton(page.actionButtonTitle, action: page.action)
     configureAdvanceButton(page.advanceButtonTitle)
@@ -169,6 +186,29 @@ internal final class OnboardPageViewController: UIViewController {
       imageView.heightAnchor.constraint(equalTo: pageStackView.heightAnchor, multiplier: 0.5).isActive = true
     } else {
       imageView.isHidden = true
+    }
+  }
+    
+  private func configureVideoView(_ videoUrl: String?) {
+    guard let videoUrl = videoUrl else {
+      videoView.isHidden = true
+      return
+    }
+        
+    let videoUrlSplits = videoUrl.split(separator: ".").map{ String($0) }
+    if let videoName = videoUrlSplits.first, let videoExtension = videoUrlSplits.last, let path = Bundle.main.path(forResource: videoName, ofType: videoExtension) {
+      NSLayoutConstraint.activate([
+        videoView.heightAnchor.constraint(equalTo: pageStackView.heightAnchor, multiplier: 0.5),
+        videoView.widthAnchor.constraint(equalTo: pageStackView.widthAnchor, multiplier: 0.8)
+      ])
+            
+      let player = AVPlayer(url: URL(fileURLWithPath: path))
+      let playerLayer = AVPlayerLayer(player: player)
+      videoView.layer.addSublayer(playerLayer)
+            
+      player.play()
+    } else {
+      videoView.isHidden = true
     }
   }
 
@@ -194,6 +234,14 @@ internal final class OnboardPageViewController: UIViewController {
 
   private func configureAdvanceButton(_ title: String) {
     advanceButton.setTitle(title, for: .normal)
+  }
+    
+  // MARK: - Layout Update
+  func updateVideoViewLayout() {
+    if let playerLayer = videoView.layer.sublayers?.first(where: { $0 is AVPlayerLayer}) {
+      playerLayer.frame = videoView.frame
+      playerLayer.position = CGPoint(x: videoView.bounds.midX, y: videoView.bounds.midY)
+    }
   }
 
   // MARK: - User Actions

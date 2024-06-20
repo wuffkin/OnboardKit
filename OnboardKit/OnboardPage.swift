@@ -16,6 +16,11 @@ public struct OnboardPage {
   ///
   /// - note: If no image is used, the description label will adjust fill the empty space
   let imageName: String?
+    
+  /// An optional video to be used in the onboarding page
+  ///
+  /// - note: The video replaces the imageView. If video and image is given, the video will be shown. If no video is given, the image can be shown.
+  let videoName: String?
 
   /// An optional description text to be used underneath the image
   ///
@@ -37,12 +42,14 @@ public struct OnboardPage {
 
   public init(title: String,
               imageName: String? = nil,
+              videoName: String? = nil,
               description: String?,
               advanceButtonTitle: String = NSLocalizedString("Next", comment: ""),
               actionButtonTitle: String? = nil,
               action: OnboardPageAction? = nil) {
     self.title = title
     self.imageName = imageName
+    self.videoName = videoName
     self.description = description
     self.advanceButtonTitle = advanceButtonTitle
     self.actionButtonTitle = actionButtonTitle

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,42 +16,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idt-Nd-IOO">
-                                <rect key="frame" x="75" y="318.5" width="225" height="30"/>
-                                <state key="normal" title="Show Onboarding (Default Style)"/>
-                                <connections>
-                                    <action selector="showOnboardingDefaultTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mIx-UH-gWn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTq-fU-hRU">
-                                <rect key="frame" x="73" y="380.5" width="229" height="30"/>
-                                <state key="normal" title="Show Onboarding (Custom Style)"/>
-                                <connections>
-                                    <action selector="showOnboardingCustomTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WGV-dl-ehI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uy5-YH-3OZ">
-                                <rect key="frame" x="68.5" y="442.5" width="238" height="30"/>
-                                <state key="normal" title="Show Onboarding (Styled Buttons)"/>
-                                <connections>
-                                    <action selector="showOnboardingStyledButtonsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Ph-7i-J5O"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="P2r-Qv-JAa">
+                                <rect key="frame" x="60" y="235.5" width="255" height="216"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idt-Nd-IOO">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
+                                        <state key="normal" title="Show Onboarding (Default Style)"/>
+                                        <connections>
+                                            <action selector="showOnboardingDefaultTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mIx-UH-gWn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTq-fU-hRU">
+                                        <rect key="frame" x="0.0" y="62" width="255" height="30"/>
+                                        <state key="normal" title="Show Onboarding (Custom Style)"/>
+                                        <connections>
+                                            <action selector="showOnboardingCustomTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WGV-dl-ehI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uy5-YH-3OZ">
+                                        <rect key="frame" x="0.0" y="124" width="255" height="30"/>
+                                        <state key="normal" title="Show Onboarding (Styled Buttons)"/>
+                                        <connections>
+                                            <action selector="showOnboardingStyledButtonsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Ph-7i-J5O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-vI-Z30">
+                                        <rect key="frame" x="0.0" y="186" width="255" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show Onboarding (Embedded Video)"/>
+                                        <connections>
+                                            <action selector="showOnboardingEmbeddedVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x2w-Y0-Vya"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tTq-fU-hRU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5iI-dH-Zmi"/>
-                            <constraint firstItem="tTq-fU-hRU" firstAttribute="top" secondItem="idt-Nd-IOO" secondAttribute="bottom" constant="32" id="6SW-9e-6bU"/>
-                            <constraint firstItem="uy5-YH-3OZ" firstAttribute="top" secondItem="tTq-fU-hRU" secondAttribute="bottom" constant="32" id="KTq-OT-cVt"/>
-                            <constraint firstItem="idt-Nd-IOO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="a8Q-nV-Z1K"/>
-                            <constraint firstItem="idt-Nd-IOO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kcR-A4-c4d"/>
-                            <constraint firstItem="uy5-YH-3OZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nyV-LJ-yY2"/>
+                            <constraint firstItem="P2r-Qv-JAa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="adk-4T-WQb"/>
+                            <constraint firstItem="P2r-Qv-JAa" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="jT2-kF-f8s"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="17" y="-24"/>
         </scene>
     </scenes>
 </document>

@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         
         let pageTwo = OnboardPage(title: "Video example",
                                   videoName: "180607_A_124.mp4",
-                                  description: "The video must be loaded into your code.\n\nEnter the video name with extension like \"awesome_video.mp4\".")
+                                  description: "The video must be loaded into your code.\n\nEnter the video name with extension like \"awesome_video.mp4\"\n\nAuthor of this video: Videvo from https://mazwai.com.")
         
         let pageThree = OnboardPage(title: "All Ready",
                                    imageName: "Onboarding5",

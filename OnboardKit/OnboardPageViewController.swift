@@ -166,8 +166,8 @@ internal final class OnboardPageViewController: UIViewController {
     // MARK: - Configurations
   func configureWithPage(_ page: OnboardPage) {
     configureTitleLabel(page.title)
-    configureImageView(page.imageName)
-    configureVideoView(page.videoName)
+    let isVideoEnabled = configureVideoView(page.videoName)
+    configureImageView(page.imageName, isVideoEnabled)
     configureDescriptionLabel(page.description)
     configureActionButton(page.actionButtonTitle, action: page.action)
     configureAdvanceButton(page.advanceButtonTitle)
@@ -180,8 +180,8 @@ internal final class OnboardPageViewController: UIViewController {
       ])
   }
 
-  private func configureImageView(_ imageName: String?) {
-    if let imageName = imageName, let image = UIImage(named: imageName) {
+  private func configureImageView(_ imageName: String?, _ isVideoEnabled: Bool) {
+    if !isVideoEnabled, let imageName = imageName, let image = UIImage(named: imageName) {
       imageView.image = image
       imageView.heightAnchor.constraint(equalTo: pageStackView.heightAnchor, multiplier: 0.5).isActive = true
     } else {
@@ -189,10 +189,10 @@ internal final class OnboardPageViewController: UIViewController {
     }
   }
     
-  private func configureVideoView(_ videoUrl: String?) {
+  private func configureVideoView(_ videoUrl: String?) -> Bool {
     guard let videoUrl = videoUrl else {
       videoView.isHidden = true
-      return
+      return false
     }
         
     let videoUrlSplits = videoUrl.split(separator: ".").map{ String($0) }
@@ -207,8 +207,10 @@ internal final class OnboardPageViewController: UIViewController {
       videoView.layer.addSublayer(playerLayer)
             
       player.play()
+      return true
     } else {
       videoView.isHidden = true
+      return false
     }
   }
 

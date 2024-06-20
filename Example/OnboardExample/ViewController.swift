@@ -120,7 +120,6 @@ class ViewController: UIViewController {
       button.titleLabel?.font = UIFont.systemFont(ofSize: 22.0, weight: .semibold)
       button.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
       button.layer.cornerRadius = button.bounds.height / 2.0
-      button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
       button.layer.shadowColor = UIColor.black.cgColor
       button.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
       button.layer.shadowRadius = 2.0

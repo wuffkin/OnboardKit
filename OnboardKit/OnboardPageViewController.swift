@@ -198,7 +198,7 @@ internal final class OnboardPageViewController: UIViewController {
     let videoUrlSplits = videoUrl.split(separator: ".").map{ String($0) }
     if let videoName = videoUrlSplits.first, let videoExtension = videoUrlSplits.last, let path = Bundle.main.path(forResource: videoName, ofType: videoExtension) {
       NSLayoutConstraint.activate([
-        videoView.heightAnchor.constraint(equalTo: pageStackView.heightAnchor, multiplier: 0.5),
+        videoView.heightAnchor.constraint(equalTo: pageStackView.heightAnchor, multiplier: 0.65),
         videoView.widthAnchor.constraint(equalTo: pageStackView.widthAnchor, multiplier: 0.8)
       ])
             

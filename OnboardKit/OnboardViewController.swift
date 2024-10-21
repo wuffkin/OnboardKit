@@ -78,6 +78,10 @@ final public class OnboardViewController: UIViewController {
                                                   completion: nil)
     }
   }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        self.completion?()
+    }
 }
 
 // MARK: Presenting
@@ -141,7 +145,7 @@ extension OnboardViewController: OnboardPageViewControllerDelegate {
 
   func pageViewController(_ pageVC: OnboardPageViewController, advanceTappedAt index: Int) {
     if index == pageItems.count - 1 {
-      dismiss(animated: true, completion: self.completion)
+      dismiss(animated: true)
     } else {
       advanceToPageWithIndex(index + 1)
     }
